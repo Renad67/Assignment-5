@@ -1,0 +1,10 @@
+{
+   "scripts": {
+    "start": "node .",
+    "start:dev": "node --watch ."
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.16.3"
+  }
+}

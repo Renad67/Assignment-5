@@ -1,0 +1,55 @@
+Part 3: (Using Node.js and MySQL) Answer the Questions below based on the given Scenario
+
+1.
+CREATE DATABASE RetailStore;
+USE RetailStore;
+
+CREATE TABLE Suppliers (
+	SupplierID INT PRIMARY KEY AUTO_INCREMENT,
+    SupplierName VARCHAR(200) NOT NULL,
+    ContactNumber VARCHAR(12) 
+);
+CREATE TABLE Products (
+	ProductID INT PRIMARY KEY AUTO_INCREMENT,
+    ProductName VARCHAR(200) NOT NULL,
+    Price DECIMAL NOT NULL, 
+    StockQuantity INT NOT NULL,
+    SupplierID INT,
+    FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID)
+);
+CREATE TABLE Sales (
+	SaleID INT PRIMARY KEY AUTO_INCREMENT,
+    QuantitySold INT NOT NULL,
+    SaleDate DATE,
+    ProductID INT,
+    FOREIGN KEY (ProductID) REFERENCES products(ProductID)
+);
+
+2.
+ALTER TABLE Products 
+ADD Category VARCHAR(50);
+
+3.
+ALTER TABLE Products 
+DROP Category;
+
+4.
+ALTER TABLE suppliers
+MODIFY ContactNumber VARCHAR(15);
+
+5.
+ALTER TABLE Products 
+MODIFY ProductName VARCHAR(255) NOT NULL;
+
+14.
+CREATE USER 'store_manager'@'localhost' IDENTIFIED BY 'password123';
+GRANT SELECT, INSERT, UPDATE ON RetailStore.* TO 'store_manager'@'localhost';
+FLUSH PRIVILEGES;
+
+15.
+REVOKE UPDATE ON RetailStore.* FROM 'store_manager'@'localhost';
+FLUSH PRIVILEGES;
+
+16.
+REVOKE UPDATE ON RetailStore.* FROM 'store_manager'@'localhost';
+FLUSH PRIVILEGES;
